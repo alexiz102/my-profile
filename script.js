@@ -104,6 +104,7 @@ video_button.addEventListener('click', (e) => {
     var status = navigator.onLine
     if (status) {
         video_modal.showModal()
+        stopScroll(true)
     } else {
         alert("This video requires an internet connection. Please connect then reload the page")
     }
@@ -114,6 +115,7 @@ const read_modal = document.querySelector('#modal-4')
 
 read_button.addEventListener('click', (e) => {
     read_modal.showModal()
+    stopScroll(true)
 })
 
 const play_game = document.querySelector('#playing')
@@ -125,6 +127,7 @@ const game_win = document.querySelector('#game')
 
 play_game.addEventListener('click', (e) => {
     game_window.showModal()
+    stopScroll(true)
 })
 
 jump.addEventListener('click', (e) => {
