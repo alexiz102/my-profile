@@ -1,6 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -23,12 +24,46 @@
     --tape-color: rgba(216, 20, 20, .8);
     --sticky-note-text: rgba(0, 0, 0, 0.7);
     --coffee-rim-radius: 50%;
+    --amb-pic: url(img/mag_glass.svg);
+    --glass-size: 1;
+    --orange-size: 1;
+    --plane-size: 1;
+    --face-size: 1;
+}
 
+:root {
+    font-size: 8px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root:has(#game:checked) {
+    --amb-pic: url(img/controller.svg)
+}
+
+:root:has(#web:checked) {
+    --amb-pic: url(img/web.svg)
+}
+
+:root:has(#software:checked) {
+    --amb-pic: url(img/software.svg)
+}
+
+:root:has(#mys:checked) {
+    --glass-size: 1.3;
+}
+:root:has(#enj:checked) {
+    --face-size: 1.3;
+}
+:root:has(#tra:checked) {
+    --plane-size: 1.3;
+}
+:root:has(#ora:checked) {
+    --orange-size: 1.3;
 }
 
 @font-face {
-    font-family: "StickyNoteFont";
-    src: url(./fonts/GloriaHallelujah-Regular.ttf);
+    font-family: "TitleFont";
+    src: url(./fonts/Pacifico-Regular.ttf);
 }
 
 @font-face {
@@ -37,8 +72,13 @@
 }
 
 @font-face {
-    font-family: "TitleFont";
-    src: url(./fonts/Pacifico-Regular.ttf);
+    font-family: "StickyNoteFont";
+    src: url(./fonts/GloriaHallelujah-Regular.ttf);
+}
+
+@font-face {
+    font-family: "BookFont";
+    src: url(./fonts/Caveat-VariableFont_wght.ttf);
 }
 
 .sepia-img {
@@ -51,14 +91,21 @@ body {
     margin: auto;
 }
 
-#backdrop {
-    position: fixed;
-    top: 0;
+#container {
+    inset: 0;
     z-index: -10000;
     width: 100%;
-    height: 100%;
-    background: url(./img/pexels-fwstudio-129731.jpg);
-    background-size: cover;
+    height: min-content;
+    background: repeating-linear-gradient(
+        rgb(110, 75, 39) 10%,
+        rgb(158, 106, 50) 40%,
+        rgb(105, 71, 36) 49%,
+        black 50%,
+        rgb(110, 75, 39) 51%,
+        rgb(158, 106, 50) 90%,
+        rgb(105, 71, 36) 99%,
+        black);
+    background-size: 100% 5rem;
 }
 header {
     height: 2rem;
@@ -72,9 +119,10 @@ header {
 #top-body {
     max-width: clamp(16.25rem, 90%, 67.5rem);
     margin-inline: auto;
-    margin-block: 2rem;
-    background: url(./img/paper-texture_1154-611.avif);
-    background-size: 15rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    background: radial-gradient(rgb(250, 202, 129) 40%, rgb(211, 170, 109));
+    background-size: cover;
     border: .5rem solid rgb(53, 36, 14);
 }
 
@@ -82,6 +130,7 @@ nav {
     position: sticky;
     top: 0;
     display: flex;
+    font-size: 2rem;
     font-family: "NavNoteFont",'Courier New', Courier, monospace;
     padding-inline: 1rem;
     padding-block: .5rem;
@@ -96,7 +145,7 @@ nav {
 #navbar {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 3rem;
     list-style: none;
 }
 
@@ -107,6 +156,7 @@ nav {
 
 #title-container {
     text-align: center;
+    font-size: 2rem;
     font-family: "TitleFont", 'Courier New', Courier, monospace;
 }
 
@@ -115,6 +165,8 @@ nav {
 }
 
 #page-cover {
+    display: grid;
+    grid-template-columns: 1fr;
     margin-top: 1rem;
 }
 
@@ -122,7 +174,7 @@ nav {
 #clips {
     display: grid;
     padding: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
 #my-img-container {
@@ -164,7 +216,7 @@ nav {
 }
 
 #my-img {
-    max-width: 100%;
+    width: 100%;
     border-radius: inherit;
     box-shadow: 
             0px 0px 0px .5rem white;
@@ -219,10 +271,17 @@ nav {
 
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     place-items: center;
     align-items: center;
-    margin-block: 1rem;
+    margin-top: 7rem;
+}
+
+#introduction {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    place-items: center;
+    align-items: center;
 }
 
 #intro {
@@ -230,6 +289,7 @@ nav {
     padding: 1rem;
     width: clamp(12rem, 80%, 20rem);
     height: fit-content;
+    font-family: "StickyNoteFont";
     background: radial-gradient(rgb(255, 252, 206) 90%, rgb(255, 153, 0)20%);
     box-shadow:
             var(--spread-shadow) var(--spread-shadow) 1px var(--box-shadow-color)
@@ -335,15 +395,19 @@ nav {
 }
 
 #my-birth {
-    height: 30rem;
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    margin-block: 10rem;
 }
 
 #book {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 1rem;
-    width: clamp(16.875rem, 90%, 30rem);
+    width: clamp(16.875rem, 90%, 50rem);
     aspect-ratio: 2/1;
+    font-family: "BookFont";
     background-color: rgb(204, 27, 21);
     border: 1px solid black;
     border-radius: 5px;
@@ -397,7 +461,7 @@ nav {
 }
 
 .page > table, #extra-note {
-    font-size: clamp(.5rem, 40%, 1rem);
+    font-size: clamp(.5rem, 40%, 2rem);
 }
 
 #extra-note {
@@ -417,12 +481,13 @@ nav {
     --stirrer-visibility: 0%;
     --vapor-speed: 3s;
     position: absolute;
-    width: clamp(2.1875rem, 8%, 3.125rem);
+    width: clamp(4rem, 8%, 6rem);
     aspect-ratio: 20/19;
     isolation: isolate;
     transform: 
             translateX(200%)
-            translateY(-500%)
+            translateY(-450%)
+            scale(.9)
     ;
     animation: none;
 }
@@ -564,7 +629,7 @@ nav {
     position: absolute;
     bottom: 0;
     text-align: center;
-    font-size: clamp(.6rem, 40%, 1.5rem);
+    font-size: clamp(1rem, 40%, 3rem);
     background-color: var(--sticky-note-color);
     border: 1px solid black;
     transform: translateY(100%);
@@ -579,12 +644,15 @@ nav {
     aspect-ratio: 1/1;
 }
 
+/* certificate still needs some more stilling */
+
 .certificate {
     position: absolute;
     display: grid;
     place-items: center;
     font-size: 4vw;
-    width: clamp(10rem, 90%, 25rem);
+    font-weight: 700;
+    width: 100%;
     aspect-ratio: 4/3;
     border: .5rem solid rgb(255, 255, 214);
     outline: 1px solid black;
@@ -598,10 +666,14 @@ nav {
 
 .cert-content {
     font-family: 'Courier New', Courier, monospace;
-    font-size: clamp(.6rem, 100%, 1rem);
+    font-size: clamp(.5rem, 60%, 1.5rem);
     text-align: center;
     line-height: 2rem;
     margin: auto;
+}
+
+.cert-content > p:nth-child(3) {
+    text-decoration: underline;
 }
 
 #elementary {
@@ -623,7 +695,7 @@ nav {
     content: " ";
     position: absolute;
     inset: 0;
-    border: .5rem solid rgb(27, 255, 84);
+    border: .5rem solid rgb(2, 160, 28);
 }
 
 #elementary > pre {
@@ -638,24 +710,468 @@ nav {
     ;
 }
 
-@media (min-width: 600px) {
+#medal {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: clamp(4rem, 10%, 6rem);
+    aspect-ratio: 1/1;
+    isolation: isolate;
+    transform: 
+            translateX(250%)
+            translateY(-250%)
+            rotate(-15deg)    ;
+}
+
+#medal:hover {
+    z-index: 100;
+    cursor: pointer;
+}
+
+#gold-piece {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: .3rem solid rgb(236, 203, 17);
+    outline: 1px solid black;
+    background: radial-gradient(rgb(255, 222, 38) 20%, gold);
+    background-size: cover;
+}
+
+#gold-piece::before {
+    content: " ";
+    position: absolute;
+    width: calc(100% - 1rem);
+    aspect-ratio: 1/1;
+    margin: auto;
+    inset: .1rem;
+    border-radius: 50%;
+    background: linear-gradient(90deg, yellow, rgb(253, 255, 106), yellow);
+    border: .45rem solid gold;
+    outline: 1px solid black;
+}
+
+#ribbon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 50%;
+    z-index: -10;
+    width: 80%;
+    aspect-ratio: 1/2;
+}
+
+#ribbon-right {
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(15deg, rgb(199, 0, 0) 20%, black);
+    border-radius: 0px 0px 0px 100px;
+}
+
+#ribbon-left {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(15deg, rgb(199, 0, 0) 20%, black);
+    border-radius: 0px 0px 100px 0px;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hobbies {
+    height: max-content;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.content-title {
+    font-size: 2rem;
+}
+
+#hobby-list {
+    --note-filter: 0%;
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    place-items: center;
+    list-style: none;
+    gap: 1rem;
+}
+
+#music {
+    filter: grayscale(var(--note-filter));
+}
+
+#music:active {
+    --note-filter: 100%;
+}
+
+.hobby {
+    background-color: white;
+    border-radius: 20%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.hobby:hover {
+    outline: 5px solid lightgreen;
+    cursor: pointer;
+}
+
+.modal {
+    height: 60%;
+    aspect-ratio: 1/1;
+    margin: auto;
+}
+
+#modal-1::backdrop {
+    background: linear-gradient(45deg,#ffafbd, #ffc3a0);
+    opacity: .3;
+}
+
+#modal-2 {
+    text-align: center;
+}
+
+#modal-2 > * {
+    margin: 1rem;
+}
+
+#game-theory {
+    width: 90%;
+}
+
+#like-drawing {
+    width: 50%;
+    aspect-ratio: 1/1;
+    background: linear-gradient(lightblue, pink);
+}
+
+#modal-4 > ul {
+    list-style: disc;
+}
+
+#modal-4 > ul > li {
+    margin-block: 1rem;
+}
+
+#game {
+    position: relative;
+    margin: auto;
+    width: 90%;
+    aspect-ratio: 2/1;
+    border: 1px solid black;
+    top: 25%;
+    overflow: hidden;
+}
+
+#char {
+    position: relative;
+    width: 10%;
+    height: 30%;
+    background-color: red;
+    top: 70%;
+}
+
+.jump {
+    animation: jump .75s ease-out;
+}
+
+#block {
+    width: 10%;
+    height: 20%;
+    background-color: blue;
+    position: relative;
+    top: 50%;
+    left: 90%;
+    animation: approach 2s infinite;
+}
+
+#modal-5 > .close {
+    position: relative;
+    top: 40%;
+}
+
+#jump {
+    position: relative;
+    top: 30%;
+}
+
+#likes {
+    height: 100vh;
+    isolation: isolate;
+}
+
+#like-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    background-color: rgb(226, 226, 226);
+    padding: 4rem;
+    box-shadow:
+    1px 1px 0px 1px rgb(241, 241, 152),
+    1.5px 1.5px 0px 1px rgb(209, 209, 132),
+    2px 2px 0px 1px rgb(241, 241, 152),
+    2.5px 2.5px 0px 1px rgb(209, 209, 132),
+    3px 3px 0px 1px rgb(241, 241, 152),
+    3.5px 3.5px 0px 1px rgb(209, 209, 132),
+    4px 4px 0px 1px rgb(241, 241, 152),
+    4.5px 4.5px 0px 1px rgb(209, 209, 132),
+    5px 5px 0px 1px rgb(241, 241, 152),
+    6.5px 6.5px 0px 1px rgb(209, 209, 132),
+    7px 7px 0px 1px rgb(241, 241, 152),
+    8.5px 8.5px 0px 1px rgb(209, 209, 132),
+    9px 9px 0px 1px rgb(241, 241, 152),
+    10.5px 10.5px 0px 1px rgb(209, 209, 132);
+}
+
+.like {
+    font-family: StickyNoteFont, expand;
+    background-color: var(--sticky-note-color);
+}
+
+.items {
+    position: absolute;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: -10;
+}
+
+.items > img {
+    height: 50%;
+    aspect-ratio: 1/1;
+    margin: auto;
+}
+
+
+#glass {
+    transform: scale(var(--glass-size));
+}
+
+#face {
+    transform: scale(var(--face-size));
+}
+
+#plane {
+    transform: scale(var(--plane-size));
+}
+
+#orange {
+    transform: scale(var(--orange-size));
+}
+
+.like:hover, label {
+    transform: scale(1.1);
+    transition: .25s;
+    cursor: pointer;
+}
+
+#ambition {
+    width: 100%;
+    height: max-content;
+    display: block;
+}
+
+#case {
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#case > .content {
+    width: 100%;
+    height: max-content;
+    display: grid;
+    place-items: center;
+    border-radius: 20% 0% 0% 20%;
+    background: radial-gradient(white, beige);
+}
+
+#case > .display {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    background-color: beige;
+}
+
+.imahe {
+    width: 90%;
+    aspect-ratio: 1/1;
+    background-image: var(--amb-pic);
+    background-repeat: no-repeat;
+    background-size: cover;
+    outline: 1px solid black;
+}
+
+.content > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: .8rem;
+    list-style: none;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.content > div > label {
+    width: 90%;
+    font-size: 1em;
+    background: radial-gradient(lightgreen 50%, green);
+    padding: 1em;
+    border-radius: 20%;
+    margin-block: 2rem;
+    box-shadow: 2px 2px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.content > div > label:hover {
+    transform: scale(1.1);
+    transition: .25s;
+}
+
+.content > div > label:active {
+    transform: scale(.8);
+    box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="radio"], input[type="checkbox"]  {
+    display: none;
+    appearance: none;
+}
+
+#now > div {
+    margin: auto;
+    width: clamp(280px, 80%, 900px);
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 1rem;
+}
+
+#end {
+    flex-direction: column;
+}
+
+#end > div {
+    margin: auto;
+    width: clamp(280px, 80%, 900px);
+    font-size: 1.5rem;
+    background-color: var(--sticky-note-color);
+    padding: 1rem;
+}
+
+.contact, .about {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    font-size: 1em;
+    width: clamp(260px, 70%, 800px);
+    aspect-ratio: 3/2;
+    resize: none;
+}
+
+button {
+    font-size: 1em;
+}
+
+#mailer {
+    display: flex;
+    height: 90%;
+    margin: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: clamp(280px, 90%, 900px);
+    background-color: aliceblue;
+}
+
+#mailer > div {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+}
+
+.icon {
+    width: 50%;
+    aspect-ratio: 1/1;
+}
+
+#icon-group {
+    width: clamp(280px, 50%, 640px);
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 520px) {
     #coffee {
         transform: 
                 translateX(500%)
                 translateY(300%)
         ;
     }
-}
 
-@media (min-width: 1200px) {
-    :root {
-        font-size: 20px;
+    .content > div {
+        font-size: 1rem;
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 280px) {
+    #medal {
+        transform: 
+            translateX(300%)
+            translateY(-300%)
+            rotate(-15deg)
+            scale(1.3)
+            ;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        height: 60vh;
+    }
+
+}
+@media (min-width: 700px) and (min-height: 700px) {
     :root {
-        font-size: 24px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 700px) and (min-height: 500px) {
+    :root {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 700px) {
+    :root {
+        font-size: 10px;
+    }
+
+    #mailer {
+        font-size: 1.5rem;
     }
 }
 
@@ -731,5 +1247,34 @@ nav {
             scale(1.5)
             translateY(-10%)
         ;
+    }
+}
+
+
+@keyframes approach {
+    0% {
+        left: 90%;
+    }
+
+    100% {
+        left: -20%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        top: 70%;
+    }
+
+    30% {
+        top: 20%;
+    }
+
+    70% {
+        top: 20%;
+    }
+
+    100% {
+        top: 70%;
     }
 }

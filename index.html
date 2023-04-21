@@ -4,142 +4,278 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>My Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div id="backdrop">
-    </div>
-    <header></header>
-    <nav>
-        <h1 id="logo-name" tabindex="1">My Profile
-        </h1>
-        <ul id="navbar">
-            <li class="nav-items"><a href="#" tabindex="2">Home</a></li>
-            <li class="nav-items"><a href="#" tabindex="3">About</a></li>
-            <li class="nav-items"><a href="#" tabindex="4">Contacts</a></li>
-        </ul>
-    </nav>
-    <section id="top-body" class="wrapper">
-        <div id="page-cover">
-            <div id="title-container">
-                <h1 id="my-title" tabindex="5">
-                    My Profile
-                </h1>
-            </div>
-            <div id="clips">
-                <div id="my-img-container">
-                    <div id="pin"></div>
-                    <img id="my-img" src="./img/IMG_20230404_124246.jpg" alt="My-Photo">
+    <div id="container">
+        <header></header>
+        <nav>
+            <h1 id="logo-name" tabindex="1">My Profile
+            </h1>
+            <ul id="navbar">
+                <li class="nav-items"><a href="./index.html" tabindex="2">Home</a></li>
+                <li class="nav-items"><a href="./about.html" tabindex="3">About</a></li>
+                <li class="nav-items"><a href="./contacts.html" tabindex="4">Contacts</a></li>
+            </ul>
+        </nav>
+        <section id="top-body">
+            <div id="page-cover">
+                <div id="title-container">
+                    <h1 id="my-title" tabindex="5">
+                        My Profile
+                    </h1>
                 </div>
-                <div class="sticky-note" id="sticky-note">
-                    <p>Hello I'm Adriel F. Alejandro <br> from 2CPE</p>
-                </div>
-            </div>
-        </div>
-        <div id="board">
-            <div id="introduction" class="wrapper" tabindex="6">
-                <div id="intro">
-                    <h2 class="title" id="intro-title">Introduction</h1>
-                    <p class="description" id="intro-description">
-                        I'm Adriel F. Alejandro, the creator of this profile about myself. Some parts of this webpage have animation or are interactive. Please explore and enjoy.
-                    </p>
-                </div>
-                <div id="intro-display">
-                    <div class="sticky-note sticky-intro" id="sticky-pad">
-                        <div class="stick-content">
-                            <ul class="note-list">
-                                <li class="note-list-items">Listen to Music</li>
-                                <li class="note-list-items">Exercise</li>
-                                <li class="note-list-items">Vocal Chords</li>
-                                <li class="note-list-items">????</li>
-                            </ul>
-                        </div>
+                <div id="clips">
+                    <div id="my-img-container">
+                        <div id="pin"></div>
+                        <img id="my-img" src="./img/IMG_20230404_124246.jpg" alt="My-Photo">
                     </div>
-                    <div class="sticky-note sticky-intro" id="sticky-piece">
-                        <div class="sticky-content">
-                            <h2 class="note-title">Notes</h2>
-                            <ul class="note-list">
-                                <li class="note-list-items">Do Chores</li>
-                                <li class="note-list-items">Learn</li>
-                                <li class="note-list-items">HAVE FUN</li>
-                            </ul>
-                        </div>
+                    <div class="sticky-note" id="sticky-note">
+                        <p>Hello I'm Adriel F. Alejandro <br> from 2CPE</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <div id="my-birth" class="wrapper">
-        <div id="book">
-            <div id="left-page" class="page">
-                <table>
-                    <tr>
-                        <th class="table-head">Birthdate:</th>
-                        <th>October 16, 2002</th>
-                    </tr>
-                    <tr>
-                        <th class="table-head">Birthplace:</th>
-                        <th>Quirino Memorial Medical Center</th>
-                    </tr>
-                    <tr>
-                        <th class="table-head">Mother:</th>
-                        <th>Analiza Alejandro</th>
-                    </tr>
-                    <tr>
-                        <th class="table-head">Father:</th>
-                        <th>Andres V. Alejandro Jr.</th>
-                    </tr>
-                </table>
-                <div id="extra-note">
+            <div id="board">
+                <div id="introduction" tabindex="6">
+                    <div id="intro">
+                        <h2 class="title" id="intro-title">Introduction</h1>
+                        <p class="description" id="intro-description">
+                            I'm Adriel F. Alejandro, the creator of this profile about myself. Some parts of this webpage have animation or are interactive. Please explore and enjoy.
+                        </p>
+                    </div>
+                    <div id="intro-display">
+                        <div class="sticky-note sticky-intro" id="sticky-pad">
+                            <div class="stick-content">
+                                <ul class="note-list">
+                                    <li class="note-list-items">Listen to Music</li>
+                                    <li class="note-list-items">Exercise</li>
+                                    <li class="note-list-items">Vocal Chords</li>
+                                    <li class="note-list-items">????</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sticky-note sticky-intro" id="sticky-piece">
+                            <div class="sticky-content">
+                                <h2 class="note-title">Notes</h2>
+                                <ul class="note-list">
+                                    <li class="note-list-items">Do Chores</li>
+                                    <li class="note-list-items">Learn</li>
+                                    <li class="note-list-items">HAVE FUN</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="my-birth" class="wrapper">
+            <div id="book">
+                <div id="left-page" class="page">
                     <table>
                         <tr>
-                            <th class="table-head">Younger Brother:</th>
-                            <th>Arnel F. Alejandro</th>
+                            <th class="table-head">Birthdate:</th>
+                            <th>October 16, 2002</th>
+                        </tr>
+                        <tr>
+                            <th class="table-head">Birthplace:</th>
+                            <th>Quirino Memorial Medical Center</th>
+                        </tr>
+                        <tr>
+                            <th class="table-head">Mother:</th>
+                            <th>Analiza Alejandro</th>
+                        </tr>
+                        <tr>
+                            <th class="table-head">Father:</th>
+                            <th>Andres V. Alejandro Jr.</th>
                         </tr>
                     </table>
+                    <div id="extra-note">
+                        <table>
+                            <tr>
+                                <th class="table-head">Younger Brother:</th>
+                                <th>Arnel F. Alejandro</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="right-page" class="page">
+                    <img class="sepia-img" src="./img/hospital.jpg" alt="Quirino Memorial Medical Center">
+                    <img class="sepia-img" src="./img/october.jpg" alt="October">
                 </div>
             </div>
-            <div id="right-page" class="page">
-                <img class="sepia-img" src="./img/hospital.jpg" alt="Quirino Memorial Medical Center">
-                <img class="sepia-img" src="./img/october.jpg" alt="October">
+            <div id="coffee">
+                <div id="vapor-1"></div>
+                <div id="vapor-2"></div>
+                <div id="vapor-3"></div>
+                <div id="beverage">
+                    <div id="stirrer"></div>
+                </div>
+                <div id="cup">
+                    <div id="base"></div>
+                </div>
+                <div id="handle"></div>
+                <div id="plate">
+                    <div id="coffee-note">
+                        <p>Stir while hot</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="coffee">
-            <div id="vapor-1"></div>
-            <div id="vapor-2"></div>
-            <div id="vapor-3"></div>
-            <div id="beverage">
-                <div id="stirrer"></div>
-            </div>
-            <div id="cup">
-                <div id="base"></div>
-            </div>
-            <div id="handle"></div>
-            <div id="plate">
-                <div id="coffee-note">
-                    <p>Stir while hot</p>
+        <div id="my-education" class="wrapper section">
+            <div id="elementary" class="certificate">
+                <div class="cert-content">
+                    <p>Completed Elementary</p>
+                    <p>in</p>
+                    <p>Doña Susana Madrigal Memorial School</p>
                 </div>
+            </div>
+            <div id="highschool" class="certificate">
+                <div class="cert-content">
+                    <p>Completed Highschool</p>
+                    <p>in</p>
+                    <p>Rizal National Science High School</p>
+                </div>
+            </div>
+            <div id="medal">
+                <div id="gold-piece"></div>
+                <div id="ribbon">
+                    <div id="ribbon-left"></div>
+                    <div id="ribbon-right"></div>
+                </div>
+            </div>
+            <div id="school-photos"></div>
+        </div>
+        <div id="hobbies" class="section">
+            <div class="wrapper">
+                <h2 class="content-title">My Hobbies</h2>
+                <ul id="hobby-list">
+                    <li class="hobby" id="drawing">
+                        <img src="./img/pencil.svg" alt="pencil">
+                        <h3>Drawing</h3>
+                    </li>
+                    <li class="hobby" id="music">
+                        <img src="./img/notel.svg" alt="note">
+                        <h3>Listening</h3>
+                    </li>
+                    <li class="hobby" id="watching">
+                        <img src="./img/youtube.svg" alt="youtube icon">
+                        <h3>Watching</h3>
+                    </li>
+                    <li class="hobby" id="reading">
+                        <img src="./img/books.svg" alt="book">
+                        <h3>Reading</h3>
+                    </li>
+                    <li class="hobby" id="playing">
+                        <img src="./img/excite.svg" alt="happy face">
+                        <h3>Playing</h3>
+                    </li>
+                </ul>
+            </div>
+            <dialog class="modal" id="modal-1">
+                <h1>Here's a drawing</h1>
+                <img src="./img/like.svg" alt="a like" id="like-drawing">
+                <button class="close">Close</button>
+            </dialog>
+            <dialog class="modal" id="modal-2">
+                <h1>Here's a music</h1>
+                <div>
+                    <button id="button-play">Play</button>
+                    <button id="button-stop">Stop</button>
+                </div>
+                <button class="close">Close</button>
+                <audio src="./audio/Owl City - Fireflies.mp3" id="fireflies"></audio>
+            </dialog>
+            <dialog class="modal" id="modal-3">
+                <h1>Here's a channel that I like with a video</h1>
+                <div>
+                    <iframe src="https://youtube.com/embed/h8F4V7u7MTs" frameborder="0" id="game-theory"></iframe>
+                </div>
+                <button class="close">Close</button>
+            </dialog>
+            <dialog class="modal" id="modal-4">
+                <h1>Here's a list of Mangas/Manhuas I read with links</h1>
+                <ul>
+                    <li><a href="https://readmanganato.com/manga-hi985065">Overgeared</a></li>
+                    <li><a href="https://mangakakalot.com/read-kg6sn158504832577">Tsuki ga Michibiku Isekai Douchuu</a></li>
+                    <li><a href="https://eleceedscan.com/">Eleceed</a></li>
+                    <li><a href="https://manhuaplus.com/manga/above-ten-thousand-people">Above Ten Thousand People</a></li>
+                    <li><a href="https://chapmanganato.com/manga-nm991021">+99 Wooden Stick</a></li>
+                </ul>
+                <button class="close">Close</button>
+            </dialog>
+            <dialog class="modal" id="modal-5">
+                <div id="game">
+                    <div id="char"></div>
+                    <div id="block"></div>
+                </div>
+                <button id="jump">Jump</button>
+                <button class="close">Close</button>
+            </dialog>
+        </div>
+        <div id="likes" class="section">
+            <div class="wrapper">
+                <div id="like-list">
+                    <label class="like" for="mys">
+                        <input type="checkbox" name="like" id="mys">
+                        <h3>I like mysteries</h3>
+                    </label>
+                    <label class="like" for="enj">
+                        <input type="checkbox" name="like" id="enj">
+                        <h3>I like enjoyment</h3>
+                    </label>
+                    <label class="like" for="tra">
+                        <input type="checkbox" name="like" id="tra">
+                        <h3>I like to travel</h3>
+                    </label>
+                    <label class="like" for="ora">
+                        <input type="checkbox" name="like" id="ora">
+                        <h3>I like oranges</h3>
+                    </label>
+                </div>
+            </div>
+            <div class="items">
+                <img src="./img/mag_glass.svg" alt="magnifying glass" id="glass">
+                <img src="./img/excite.svg" alt="happy face" id="face">
+                <img src="./img/plane.svg" alt="A plane" id="plane">
+                <img src="./img/orange.svg" alt="an orange" id="orange">
+            </div>
+        </div>
+        <div id="ambitions" class="section">
+            <div id="case">
+                <div class="display">
+                    <div class="imahe"></div>
+                </div>
+                <div class="content">
+                    <h2>What I want to be: </h2>
+                    <div>
+                        <label for="game" checked><input type="radio" name="ambition" id="game" value="game">
+                            <h2>Game Developer</h2>
+                        </label>
+                        <label for="software"><input type="radio" name="ambition" id="software" value="game">
+                            <h2>Software Engineer</h2>
+                        </label>
+                        <label for="web"><input type="radio" name="ambition" id="web" value="web">
+                                <h2>Web Developer</h2>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="now" class="section">
+            <div>
+                <p>Currently, I'm still a student aspiring to be better in my own field and learning day by day to improve my skill. I will comeback to this page someday to complete and add more (especially the design for this page, too chaotic). So from here on out, I Thank you for viewing...</p>
+                <button id="questionable">?????</button>
+                <audio src="./audio/OneRepublic - Counting Stars.mp3" id="outro"></audio>
+            </div>
+        </div>
+        <div id="end" class="section">
+            <div>
+                <h1>You have reach the end...</h1>
+                <h2>To continue to learn more, please proceed to the <a href="./contacts.html">Contacts page</a></h2>
             </div>
         </div>
     </div>
-    <div id="my-education" class="wrapper">
-        <div id="elementary" class="certificate">
-            <div class="cert-content">
-                <p>Completed Elementary</p>
-                <p>in</p>
-                <p>Doña Susana Madrigal Memorial School</p>
-            </div>
-        </div>
-        <div id="highschool" class="certificate">
-            <div class="cert-content">
-                <p>Completed Highschool</p>
-                <p>in</p>
-                <p>Rizal National Science High School</p>
-            </div>
-        </div>
-        <div id="school-photos"></div>
-    </div>
-    <script defer src="script.js"></script>
 </body>
 </html>
