@@ -36,7 +36,7 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-:root:has(#game:checked) {
+:root:has(#games:checked) {
     --amb-pic: url(img/controller.svg)
 }
 
