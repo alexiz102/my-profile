@@ -87,7 +87,7 @@ play_button.addEventListener('click', (e) => {
 })
 
 stop_button.addEventListener('click', (e) => {
-    music.pause = true
+    music.pause()
     music.currentTime = 0
 })
 

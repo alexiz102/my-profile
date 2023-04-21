@@ -728,6 +728,13 @@ nav {
     cursor: pointer;
 }
 
+#medal:active {
+    filter: hue-rotate(180deg);
+    transform: scale(1.2);
+    
+    transition: all 1s ease-out;
+}
+
 #gold-piece {
     position: absolute;
     width: 100%;
@@ -797,6 +804,7 @@ nav {
 }
 
 .content-title {
+    color: white;
     font-size: 2rem;
 }
 
